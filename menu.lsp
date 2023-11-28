@@ -1,5 +1,4 @@
 (load "registrar.lsp")
-(load "llenar.lsp")
 (load "imprimir.lsp")
 (load "banco.lsp")
 (load "cliente.lsp")
@@ -23,14 +22,11 @@
     (setq Opcion (read))	
     (case Opcion
         (1 (progn
-            (llenarDatosBanco)
-            (agregarBanco ban)))
+            (registrarBanco)))
         (2 (progn
-            (llenarDatosCliente)
-            (agregarCliente cli)))
+            (registrarCliente)))
 		(3 (progn
 			(print "Ingrese el nit del banco a buscar: ")
 			(buscarBanco (read))))
-        ;; Aquí puedes agregar más opciones para tu menú
     )
 )

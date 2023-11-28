@@ -1,4 +1,4 @@
-(defun llenarDatosBanco()
+(defun llenarDatosBanco(ban)
    (print "Digite el nit:")
    (setf (Banco-nit ban)(read))
    (print "Digite el nombre:")
@@ -7,7 +7,7 @@
    (setf (Banco-num_empleados ban)(read))
 )
 
-(defun llenarDatosCliente()
+(defun llenarDatosCliente(cli)
    (print "Digite el id:")
     (setf (Cliente-id cli)(read))
     (print "Digite el nombre:")

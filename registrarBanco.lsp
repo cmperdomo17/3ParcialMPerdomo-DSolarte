@@ -1,3 +1,7 @@
+(load "llenar.lsp")
+
+; Structs
+
 (defun structBanco()
  (defstruct Banco
   nit
@@ -7,11 +11,6 @@
 (setq ban (make-Banco))
 )
 
-(defun structCliente()
- (defstruct Cliente
-  id
-  nombre
-  genero
-  )
-(setq cli (make-Cliente))
-)
+llenarDatosBanco(ban)
+
+
