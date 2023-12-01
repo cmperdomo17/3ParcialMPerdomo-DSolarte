@@ -1,14 +1,8 @@
-(load "llenar.lsp")
-
-; Structs
-
-(defun structCliente()
- (defstruct Cliente
-  id
-  nombre
-  genero
-  )
-(setq cli (make-Cliente))
+(defun llenarDatosCliente(cli)
+   (print "Digite el id:")
+    (setf (Cliente-id cli)(read))
+    (print "Digite el nombre:")
+    (setf (Cliente-nombre cli)(read))
+    (print "Digite el genero:")
+    (setf (Cliente-genero cli)(read))
 )
-
-llenarDatosCliente(cli)

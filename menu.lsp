@@ -1,10 +1,15 @@
-(load "registrar.lsp")
-(load "imprimir.lsp")
-(load "banco.lsp")
-(load "cliente.lsp")
+;Integrantes:
+;-Daniel Fernando Solarte Ortega
+;-Carlos Mario Perdomo Ramos
 
-(structBanco)
-(structCliente)
+(load "vecsYstructs.lsp")
+(load "registrarBanco.lsp")
+;(load "imprimir.lsp")
+(load "buscarBanco.lsp")
+;(load "cliente.lsp")
+
+(crearStructBanco)
+(crearStructCliente)
 
 (loop
     (print " ===========================================")
@@ -15,18 +20,19 @@
     (print "   2.   Registrar Cliente ")
     (print "   3.   Buscar Banco por: nit ")
     (print "   4.   Buscar un Cliente.")
-    (print "   5. 	Consultar numero de Clientes que son de género FEMENINO de un Banco específico.")
+    (print "   5. 	Consultar numero de Clientes que son de genero FEMENINO de un Banco especifico.")
     (print "   6.   Salir.")
     (format t" ~%")
     (print "   Digite la opcion:")
     (setq Opcion (read))	
     (case Opcion
-        (1 (progn
-            (registrarBanco)))
-        (2 (progn
-            (registrarCliente)))
+        (1 (registrarBancos))
+        ;(2 (registrarCliente))
 		(3 (progn
-			(print "Ingrese el nit del banco a buscar: ")
-			(buscarBanco (read))))
+		      (print "Ingrese el nit del banco a buscar: ")
+			  (buscarBanco (read))
+            )
+        )
     )
+    (when (eq Opcion 6) (print "fin programa") (return))
 )
