@@ -6,7 +6,7 @@
 (load "registrarBanco.lsp")
 ;(load "imprimir.lsp")
 (load "buscarBanco.lsp")
-;(load "cliente.lsp")
+(load "registrarCliente.lsp")
 
 (crearStructBanco)
 (crearStructCliente)
@@ -26,9 +26,13 @@
     (print "   Digite la opcion:")
     (setq Opcion (read))	
     (case Opcion
-        (1 (registrarBancos))
-        ;(2 (registrarCliente))
-		(3 (progn
+        (1  (registrarBancos))
+        (2  (progn
+                (print "Ingrese el nit del banco al cual desea registrar clientes: ")
+                (registrarClientes (read))
+            )
+        )
+		(3  (progn
 		      (print "Ingrese el nit del banco a buscar: ")
 			  (buscarBanco (read))
             )

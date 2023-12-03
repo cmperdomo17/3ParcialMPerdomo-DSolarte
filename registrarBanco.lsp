@@ -6,9 +6,13 @@
 (defun registrarBancos()
     (setq band 1);Bandera para las validaciones de los datos 1=true,0=false
     (setq i 0)
+
     (loop
+        (format t"~%")
         (format t"----Datos Banco: ~d----~%" (+ i 1))
+
         (setq banco (make-Banco)) ;Estructura de banco
+
         ;Ingresar Nit del Banco
         (loop
             (print "Digite el nit:")
@@ -19,6 +23,7 @@
             )
             (when (= band 1) (return ))
         )
+
         ;Ingresar Nombre del Banco
         (loop
             (print "Digite el nombre:")
@@ -29,6 +34,7 @@
             )
             (when (= band 1) (return ))
         )
+
         ;Ingresar el numero de empleados del Banco
         (loop
             (print "Digite el numero de empleados:")
@@ -39,8 +45,15 @@
             )
             (when (= band 1) (return ))
         )
+
+        (format t"~%")
+        ;Inicializar el vector de clientes
+        (setf vectorClientes (make-array 3))
+        (setf (Banco-clientesBanco banco) vectorClientes)
+
         ;Registrar el banco en el vector
         (setf (aref vectorBancos i) banco)
+
         (setq i (+ i 1))
         (when (> i 1) (return ))
     )
