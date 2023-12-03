@@ -6,6 +6,11 @@
 (defun buscarMujeres(nit)
     (setq encontrado 0)
     (setq i 0)
+
+    ;Si el primer banco es null significa que NO se registraron los dos bancos
+    (if (null (aref vectorBancos 0)) (progn (print "No hay bancos registrados"))
+    (progn 
+
     ; Comienza el primer bucle que recorre los bancos
     (loop
         ; Obtiene el banco actual
@@ -34,17 +39,21 @@
                             ; Si se han revisado todos los clientes, sale del bucle de clientes
                             (when (>= j (length (Banco-clientesBanco auxBanco))) (return))
                         )
-                        ; Imprime el número de clientes femeninos
-                        (format t"Numero de clientes FEMENINOS: ~d del Banco: ~S~%" numMujeres (Banco-nombre auxBanco))
                         ; Si no hay clientes femeninos, imprime un mensaje
                         (if (= numMujeres 0) 
-                            (format t"No hay clientes FEMENINOS en el Banco: ~S, con NIT: ~d~%" (Banco-nombre auxBanco) nit))
+                            (format t"No hay clientes FEMENINOS en el Banco: ~S, con NIT: ~d~%" (Banco-nombre auxBanco) nit)
+                            ; Si las hay, imprime el número de clientes femeninos
+                            (format t"Numero de clientes FEMENINOS: ~d del Banco: ~S~%" numMujeres (Banco-nombre auxBanco))
+                        )
+                            
                     )
                 )
             )
         )
         (setq i (+ i 1))
         (when (>= i (length vectorBancos)) (return))
-    )
+    );Finaliza el LOOP para buscar el banco
+    );Finaliza la parte falsa del IF de comprobar que hayan bancos
+    );Finaliza el IF de comprobar que hayan bancos
     (if (eq encontrado 0) (format t"El banco con nit: ~d no se encuentra registrado~%" nit))
 )

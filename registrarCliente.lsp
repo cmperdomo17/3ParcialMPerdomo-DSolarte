@@ -7,7 +7,7 @@
     (setq encontrado 0);Bandera para verificar si se encontro el banco 1=true,0=false
     (setq i 0);Variable iteradora para el LOOP de buscar el banco
 
-    ;Si el primer banco es distinto de null significa que se registraron los dos bancos
+    ;Si el primer banco es null significa que NO se registraron los dos bancos
     (if (null (aref vectorBancos 0)) (progn (print "No hay bancos registrados"))
     (progn 
 

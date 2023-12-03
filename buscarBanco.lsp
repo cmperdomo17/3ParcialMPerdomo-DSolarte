@@ -7,6 +7,11 @@
     (setq encontrado 0);Bandera para verificar si se encontro el banco 1=true,0=false
     ;Recorrer el vector de bancos preguntando si el nit coincide
     (setq i 0)
+
+    ;Si el primer banco es null significa que NO se registraron los dos bancos
+    (if (null (aref vectorBancos 0)) (progn (print "No hay bancos registrados"))
+    (progn 
+
     (loop
         (setf auxBanco (aref vectorBancos i))
 
@@ -43,7 +48,10 @@
 
         (setq i (+ i 1))
         (when (> i 1) (return ))
-    )
+
+    );Finaliza el LOOP para buscar el banco
+    );Finaliza la parte falsa del IF de comprobar que hayan bancos
+    );Finaliza el IF de comprobar que hayan bancos
     (if (eq encontrado 0) (format t"El banco con nit: ~d no se encuentra registrado~%" nit))
 )
 
