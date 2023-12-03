@@ -7,6 +7,7 @@
 ;(load "imprimir.lsp")
 (load "buscarBanco.lsp")
 (load "registrarCliente.lsp")
+(load "consultarFemenino.lsp")
 
 (crearStructBanco)
 (crearStructCliente)
@@ -20,8 +21,9 @@
     (print "   2.   Registrar Cliente ")
     (print "   3.   Buscar Banco por: nit ")
     (print "   4.   Buscar un Cliente.")
-    (print "   5. 	Consultar numero de Clientes que son de genero FEMENINO de un Banco especifico.")
+    (print "   5.   Contar Mujeres Clientes en un Banco.")
     (print "   6.   Salir.")
+
     (format t" ~%")
     (print "   Digite la opcion:")
     (setq Opcion (read))	
@@ -35,6 +37,11 @@
 		(3  (progn
 		      (print "Ingrese el nit del banco a buscar: ")
 			  (buscarBanco (read))
+            )
+        )
+        (5  (progn
+                (print "Ingrese el nit del banco a buscar: ")
+                (buscarMujeres (read))
             )
         )
     )
